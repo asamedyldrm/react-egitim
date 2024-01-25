@@ -1,3 +1,5 @@
+//props yapısıyla alakalı basit bir proje
+
 import Image from "next/image";
 import { montserrat } from "./ui/fonts";
 

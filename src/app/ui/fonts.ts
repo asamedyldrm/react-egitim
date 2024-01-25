@@ -1,4 +1,4 @@
 import { Montserrat } from "next/font/google";
 
 export const montserrat = Montserrat({subsets: ['cyrillic']});
-export const montserratLatin = Montserrat({subsets: ['latin']});
+// export const montserratLatin = Montserrat({subsets: ['latin']});
