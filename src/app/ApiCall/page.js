@@ -1,14 +1,22 @@
+'use client'
 
- import SearchHeader from './SearchHeader'
+import SearchHeader from "./SearchHeader";
+import searchImages from "./Api";
+import {useState} from "react";
+import ImageList from "./ImageList"
 
-export default function ApiCall() {
-    // const handleSubmit = () => {
-    //     console.log(term)
 
-    return <div>
-         <SearchHeader/>
+export default function App() {
+  const [images, setImages] = useState([])
+  
+  const handleSubmit = async (term) => {
+    const result = await searchImages(term);
+    setImages(result)
+  };
+  return (
+    <div className="App">
+      <SearchHeader search={handleSubmit} />
+      <ImageList imagesPlaceHolder = {images}/>
     </div>
-
-    }
-    
-    
+  );
+}

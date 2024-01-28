@@ -1,30 +1,34 @@
-// 'use client'
+import React from "react";
+import { useState } from "react";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+const icon = 'fa-solid fa-magnifying-glass'
 
-// const icon = '<i className="fa-solid fa-magnifying-glass flex flex-column"></i>'
+export default function SearchHeader({ search }) {
+  const [valueInput, setValue] = useState('');
 
-// export default function SearchHeader({ search }) {
-//   const handleFormSubmit = (event) => {
-//     // event.preventDefault();
-//     // search("samet");
-//     alert("bi şeyler");
-//   };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    search(valueInput);
+  };
 
-
-
-  export default function SearchHeader() {
-    const handleFormSubmit = () => {
-        console.log("samet")
-    }
-    return <>
-    <div className="SearchDiv flex flex-row p-5">
-        <form className="w-screen" onSubmit={handleFormSubmit()}>
-            <label className="flex flex-row items-center gap-x-2 p-1">
-                <input placeholder="Ara..." className="w-full box-border p-3 pl-12 border-2 border-sky-500 focus-within:border-red-800" />
-            </label>
-        </form>
-    </div>
-    </>
+  const handleChange = (event) => {
+    setValue(event.target.value)
   }
+
+  return (
+    <div className="flex flex-wrap p-5">
+      <form className="w-screen flex items-center" onSubmit={handleFormSubmit}>
+        <input
+          placeholder="Search..."
+          className="input flex-grow box-border p-3 pl-12 border-2 rounded-md border-sky-500 focus:bg-slate-200"
+          value={valueInput}
+          onChange={handleChange}
+        />
+        {/* <button onClick={handleFormSubmit} className="bg-sky-700 text-white font-medium pb-4 pt-4 pl-20 pr-20 m-2 rounded-md hover:bg-sky-800"> */}
+          {/* Search! */}
+        {/* </button> */}
+      </form>
+    </div>
+  );
+  
+}
