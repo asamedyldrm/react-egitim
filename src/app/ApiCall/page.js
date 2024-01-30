@@ -12,6 +12,7 @@ export default function App() {
   const handleSubmit = async (term) => {
     const result = await searchImages(term);
     setImages(result)
+    console.log(images)
   };
   return (
     <div className="App">

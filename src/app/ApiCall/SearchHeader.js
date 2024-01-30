@@ -9,6 +9,7 @@ export default function SearchHeader({ search }) {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     search(valueInput);
+    
   };
 
   const handleChange = (event) => {
